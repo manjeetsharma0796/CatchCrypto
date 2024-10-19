@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    padding: 10px;
+}
+
+#logo {
+    width: 100px;
+}
+
+#connectWallet {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+canvas {
+    background-color: #ffffff;
+    border: 1px solid #000;
+}
+
+#info {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    margin-top: 10px;
+}
+
+#timer, #score {
+    font-size: 18px;
+}
+
+#playButton {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+#gameOver {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}

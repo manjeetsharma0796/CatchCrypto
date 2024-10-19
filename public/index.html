@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Falling Items</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Game Logo" id="logo">
+        <button id="connectWallet">Connect Wallet</button>
+    </header>
+    <canvas id="gameCanvas" width="480" height="320"></canvas>
+    <div id="info">
+        <span id="timer">Time: 0</span>
+        <span id="score">Score: 0</span>
+        <button id="playButton">Play</button>
+    </div>
+    <div id="gameOver" class="hidden">
+        <p>Game Over! Your score: <span id="finalScore"></span></p>
+        <button id="claimTokens">Claim Tokens</button>
+    </div>
+    <footer>
+        <p>&copy; 2024 Catch the Falling Items. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="wallets.js"></script>
+
+</body>
+</html>
