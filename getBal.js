@@ -366,11 +366,11 @@ const Token = {
             "type": "function"
         }
     ]
-}       
+}
 // Connect to the Polygon (Matic) network
 
 // Replace with your token contract address and your account address
-const contractAddress = '0x63846e146420ff19C6b870878A189A922f2b2739';
+const contractAddress = '0x043A21B1e3b969e4d8bE1604Ef7CD95046f1094E';
 const accountAddress = '0xfB8ae9808D84BF601f2Ef6178Da51a612bD046D0';
 
 

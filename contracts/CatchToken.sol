@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract CatchToken is ERC20 {
     // Constructor that initializes the ERC20 token with a name and symbol
-    constructor() ERC20("FoodyToken", "FOODY") {
+    constructor() ERC20("CatchToken", "CTOK") {
         // Mint initial supply of tokens to the contract deployer's address
         // _mint(msg.sender, 1000000 * 10 ** decimals());
     }

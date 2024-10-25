@@ -1,8 +1,8 @@
 ## Add this token as manually into your wallet
 
-Contract Address = 0x63846e146420ff19C6b870878A189A922f2b2739
+Contract Address = 0x043A21B1e3b969e4d8bE1604Ef7CD95046f1094E
 
-[Verify Here](0x63846e146420ff19C6b870878A189A922f2b2739)
+[Verify Here](0x043A21B1e3b969e4d8bE1604Ef7CD95046f1094E)
 
 ---
 
