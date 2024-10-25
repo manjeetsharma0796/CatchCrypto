@@ -2,7 +2,7 @@
 
 Contract Address = 0x043A21B1e3b969e4d8bE1604Ef7CD95046f1094E
 
-[Verify Here](0x043A21B1e3b969e4d8bE1604Ef7CD95046f1094E)
+[Verify Here](https://testnet.aiascan.com/token/0x043A21B1e3b969e4d8bE1604Ef7CD95046f1094E)
 
 ---
 
