@@ -397,12 +397,12 @@ async function displayWalletInfo(account) {
     const balance = await getPolygonBalance(account);
     const tokenBalance = await getTokenBalance(account, `${CONTRACT_ADDRESS}`);
 
-    document.getElementById('info').innerHTML += `
-        <div>
-            <p>Polygon Balance: ${balance} MATIC</p>
-            <p>Token Balance: ${tokenBalance} TOKEN_SYMBOL</p>
-        </div>
-    `;
+    // document.getElementById('info').innerHTML += `
+    //     <div>
+    //         <p>Polygon Balance: ${balance} MATIC</p>
+    //         <p>Token Balance: ${tokenBalance} TOKEN_SYMBOL</p>
+    //     </div>
+    // `;
 }
 
 async function getPolygonBalance(account) {

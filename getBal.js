@@ -387,23 +387,23 @@ const tokenAddress = contractAddress; // Replace with actual token contract addr
 const walletAddress = accountAddress; // Replace with actual wallet address
 
 async function getTokenBalance() {
-    try {
-        // Create a contract instance for the ERC-20 token
-        const tokenContract = new ethers.Contract(tokenAddress, tokenAbi, provider);
+    // try {
+    //     // Create a contract instance for the ERC-20 token
+    //     const tokenContract = new ethers.Contract(tokenAddress, tokenAbi, provider);
 
-        // Get the balance in raw token units
-        const balance = await tokenContract.balanceOf(walletAddress);
+    //     // Get the balance in raw token units
+    //     const balance = await tokenContract.balanceOf(walletAddress);
 
-        // Get token decimals to format the balance
-        const decimals = await tokenContract.decimals();
+    //     // Get token decimals to format the balance
+    //     const decimals = await tokenContract.decimals();
 
-        // Format the balance using decimals
-        const formattedBalance = ethers.utils.formatUnits(balance, decimals);
+    //     // Format the balance using decimals
+    //     const formattedBalance = ethers.utils.formatUnits(balance, decimals);
 
-        console.log(`Token Balance: ${formattedBalance} tokens`);
-    } catch (error) {
-        console.error('Error fetching token balance:', error);
-    }
+    //     console.log(`Token Balance: ${formattedBalance} tokens`);
+    // } catch (error) {
+    //     console.error('Error fetching token balance:', error);
+    // }
 }
 
 getTokenBalance();

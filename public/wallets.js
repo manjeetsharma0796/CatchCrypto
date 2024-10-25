@@ -371,7 +371,7 @@ const Token = {
     "deployedLinkReferences": {}
 }
 const CONTRACT_ADDRESS = '0x63846e146420ff19C6b870878A189A922f2b2739';
-
+let account = ""
 const connectWalletButton = document.getElementById('connectWallet');
 const web3 = new Web3(window.ethereum);
 
@@ -379,7 +379,7 @@ connectWalletButton.addEventListener('click', async () => {
     if (typeof window.ethereum !== 'undefined') {
         try {
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const account = accounts[0];
+            account = accounts[0];
             displayWalletInfo(account);
             alert(`Connected to wallet: ${account}`);
         } catch (error) {
@@ -398,14 +398,14 @@ async function displayWalletInfo(account) {
     const balance = await getPolygonBalance(account);
     const tokenBalance = await getTokenBalance(account, `${CONTRACT_ADDRESS}`);
 
-    document.getElementById('info').innerHTML += `
-        <div>
-            <p>Polygon Balance: ${balance} MATIC</p>
-            <p>Token Balance: ${tokenBalance} TOKEN_SYMBOL</p>
-        </div>
-    `;
+    // document.getElementById('info').innerHTML += `
+    //     <div>
+    //         <p>Polygon Balance: ${balance} MATIC</p>
+    //         <p>Token Balance: ${tokenBalance} TOKEN_SYMBOL</p>
+    //     </div>
+    // `;
 
-    document.getElementById('tokenBalanceDisplay').textContent = `Your Token Balance: ${tokenBalance} TOKEN_SYMBOL`;
+    // document.getElementById('tokenBalanceDisplay').textContent = `Your Token Balance: ${tokenBalance} TOKEN_SYMBOL`;
 }
 
 async function getPolygonBalance(account) {
@@ -417,4 +417,42 @@ async function getTokenBalance(account, contractAddress) {
     const contract = new web3.eth.Contract(Token.abi, contractAddress);
     const balance = await contract.methods.balanceOf(account).call();
     return web3.utils.fromWei(balance, 'ether');
+}
+
+const withdraw = async () => {
+    console.log(account, CONTRACT_ADDRESS, Token.abi);
+
+    const earnedAIA = 4;  // Amount to mint
+
+    // Check for MetaMask or other injected web3 provider
+    if (typeof window.ethereum === 'undefined') {
+        alert("MetaMask is not installed!");
+        return;
+    }
+
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+
+    // Initialize the contract
+    const movieRev = new ethers.Contract(CONTRACT_ADDRESS, Token.abi, signer);
+
+    console.log(earnedAIA, "========inside withdraw===");
+
+    // Mint tokens
+    try {
+        const tx = await movieRev.mint(account, ethers.parseUnits(earnedAIA.toString(), 18));
+        await tx.wait();
+        alert('Withdraw your earned AIA coins!');
+    } catch (error) {
+        console.error("Transaction failed:", error);
+        alert("There was an error with the transaction.");
+    }
+};
+
+
+const withdrawEle = document.getElementById("claimTokens");
+
+withdrawEle.onclick = () => {
+    console.log("__________________withdraw initiated+________________")
+    withdraw()
 }
