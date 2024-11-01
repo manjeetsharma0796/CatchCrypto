@@ -422,7 +422,7 @@ async function getTokenBalance(account, contractAddress) {
 const withdraw = async () => {
     console.log(account, CONTRACT_ADDRESS, Token.abi);
 
-    const earnedAIA = 4;  // Amount to mint
+    const earnedAIA = localStorage.getItem("ctok");  // Amount to mint
 
     // Check for MetaMask or other injected web3 provider
     if (typeof window.ethereum === 'undefined') {
@@ -432,7 +432,7 @@ const withdraw = async () => {
 
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
-
+    const address = await signer.getAddress()
     // Initialize the contract
     const movieRev = new ethers.Contract(CONTRACT_ADDRESS, Token.abi, signer);
 
@@ -440,7 +440,7 @@ const withdraw = async () => {
 
     // Mint tokens
     try {
-        const tx = await movieRev.mint(account, ethers.parseUnits(earnedAIA.toString(), 18));
+        const tx = await movieRev.mint(address, ethers.parseUnits(earnedAIA.toString(), 18));
         await tx.wait();
         alert('Withdraw your earned AIA coins!');
     } catch (error) {

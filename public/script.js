@@ -18,7 +18,7 @@ const itemSpeed = 2;
 let score = 0;
 let time = 0;
 let lives = 5;
-let gameOver = false;
+let gameOver = true;
 
 function drawPlayer() {
     ctx.fillStyle = '#0095DD';
@@ -104,6 +104,7 @@ function endGame() {
     finalScoreEl.textContent = score;
     const tokensEarned = calculateTokens(score, Math.floor(time / 60));
     alert(`You earned ${tokensEarned} tokens!`);
+    localStorage.setItem("ctok", tokensEarned)
 }
 
 function calculateTokens(score, time) {
